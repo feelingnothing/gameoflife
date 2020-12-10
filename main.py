@@ -67,7 +67,8 @@ class GameOfLife(Board):
         if not cell:
             return
         x, y = cell
-        self.board[x][y] = (self.board[x][y] + 1) % 2
+        if not self.drawing:
+            self.board[x][y] = (self.board[x][y] + 1) % 2
 
     def get_neighbours(self, x, y):
         def get(r, c):
